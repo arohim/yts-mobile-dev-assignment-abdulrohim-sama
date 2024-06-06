@@ -1,7 +1,5 @@
 import java.util.*
 
-data class Point(val x: Int, val y: Int)
-
 class BreadthFirstSearch {
 
     fun shortestPath(grid: Array<Array<Int>>): Int {
