@@ -48,4 +48,16 @@ class ShortestPathTest {
         )
         assertEquals(7, breadthFirstSearch.shortestPath(grid))
     }
+
+    @Test
+    fun testMultiplePaths2() {
+        val grid = arrayOf(
+            arrayOf(1, 1, 1, 1, 1, 1, 1, 1),
+            arrayOf(1, 0, 0, 1, 0, 0, 0, 1),
+            arrayOf(1, 0, 0, 1, 0, 0, 0, 1),
+            arrayOf(1, 1, 1, 1, 1, 1, 1, 1),
+            arrayOf(1, 1, 1, 1, 1, 1, 1, 1)
+        )
+        assertEquals(12, breadthFirstSearch.shortestPath(grid))
+    }
 }
