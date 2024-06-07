@@ -1,6 +1,11 @@
-class BackTracking {
+package algorithm
 
-    fun shortestPath(grid: Array<Array<Int>>): Int {
+import Point
+
+class BackTrackingSearch : ShortestPathFinder {
+
+
+    override fun execute(grid: Array<Array<Int>>): Int {
         if (grid.isEmpty() || grid.first().isEmpty() || grid.first().first() == 0 || grid.last().last() == 0)
             return -1
 
@@ -34,12 +39,9 @@ class BackTracking {
             visited[x][y] = false
         }
 
-        backtrack(0, 0, 1)
+        backtrack(0, 0, 0)
 
         return if (shortestPath == Int.MAX_VALUE) -1 else shortestPath
     }
 
-    fun isSafe(grid: Array<Array<Int>>, x: Int, y: Int, visited: Array<Array<Boolean>>): Boolean {
-        return x >= 0 && y >= 0 && x < grid.size && y < grid[0].size && grid[x][y] == 1 && !visited[x][y]
-    }
 }

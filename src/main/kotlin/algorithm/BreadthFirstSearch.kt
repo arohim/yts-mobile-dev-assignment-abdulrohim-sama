@@ -1,8 +1,11 @@
+package algorithm
+
+import Point
 import java.util.*
 
-class BreadthFirstSearch {
+class BreadthFirstSearch : ShortestPathFinder {
 
-    fun shortestPath(grid: Array<Array<Int>>): Int {
+    override fun execute(grid: Array<Array<Int>>): Int {
         // Return -1 if grid is empty
         if (grid.isEmpty() || grid[0].isEmpty())
             return -1
@@ -28,7 +31,7 @@ class BreadthFirstSearch {
         visited[0][0] = true
 
         // Also count the starting point as 1 step
-        var steps = 1
+        var steps = 0
 
         // Loop until queue is empty
         //    when queue is empty means we have visited all the possible path
