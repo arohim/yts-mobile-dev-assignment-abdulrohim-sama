@@ -13,7 +13,7 @@ class ShortestPathTest {
     private val aStarSearch: ShortestPathFinder = AStarSearch()
 
     @Test
-    fun testSmallGrid() {
+    fun `Test small grid`() {
         val grid = arrayOf(
             arrayOf(1, 1, 1),
             arrayOf(1, 0, 0),
@@ -25,23 +25,25 @@ class ShortestPathTest {
     }
 
     @Test
-    fun testLargeGrid() {
+    fun `Test large grid`() {
         val grid = Array(1000) { Array(1000) { 1 } }
         assertEquals(1998, breadthFirstSearch.execute(grid))
+//        Backtracking causing StackOverflow exception because too much recursive
 //        assertEquals(1998, backTrackingSearch.execute(grid))
         assertEquals(1998, aStarSearch.execute(grid))
     }
 
     @Test
-    fun testSuperLargeGrid() {
+    fun `Test super large grid`() {
         val grid = Array(2000) { Array(2000) { 1 } }
         assertEquals(3998, breadthFirstSearch.execute(grid))
+//        Backtracking causing StackOverflow exception because too much recursive
 //        assertEquals(3998, backTrackingSearch.execute(grid))
         assertEquals(3998, aStarSearch.execute(grid))
     }
 
     @Test
-    fun testNoPath() {
+    fun `Test no path`() {
         val grid = arrayOf(
             arrayOf(1, 0, 1),
             arrayOf(0, 0, 0),
@@ -53,7 +55,7 @@ class ShortestPathTest {
     }
 
     @Test
-    fun testMultiplePaths() {
+    fun `Test multiple paths`() {
         val grid = arrayOf(
             arrayOf(1, 1, 0, 1),
             arrayOf(1, 1, 0, 1),
@@ -66,7 +68,7 @@ class ShortestPathTest {
     }
 
     @Test
-    fun testMultiplePaths2() {
+    fun `Test multiple paths2`() {
         val grid = arrayOf(
             arrayOf(1, 1, 1, 1, 1, 1, 1, 1),
             arrayOf(1, 0, 0, 1, 0, 0, 0, 1),
@@ -80,7 +82,7 @@ class ShortestPathTest {
     }
 
     @Test
-    fun testMultiplePaths3() {
+    fun `Test multiple paths3`() {
         val grid = arrayOf(
             arrayOf(1, 1, 1, 1, 1),
             arrayOf(1, 0, 0, 1, 0),
@@ -92,7 +94,7 @@ class ShortestPathTest {
             arrayOf(1, 1, 1, 1, 1),
             arrayOf(1, 1, 1, 1, 1),
             arrayOf(1, 1, 1, 1, 1),
-            arrayOf(1, 1, 1, 1, 1),
+            arrayOf(1, 1, 1, 1, 1)
         )
         assertEquals(14, breadthFirstSearch.execute(grid))
         assertEquals(14, backTrackingSearch.execute(grid))
