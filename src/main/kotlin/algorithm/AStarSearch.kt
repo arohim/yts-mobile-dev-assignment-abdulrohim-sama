@@ -28,7 +28,9 @@ class AStarSearch : ShortestPathFinder {
 
         val start = Point(0, 0)
         val goal = Point(rows - 1, cols - 1)
-        val openSet = PriorityQueue<Point>()
+        val openSet = PriorityQueue<Point> { a, b ->
+            a.cost - b.cost
+        }
         val gScore = Array(rows) { IntArray(cols) { Int.MAX_VALUE } }
         val visited = Array(rows) { BooleanArray(cols) }
 

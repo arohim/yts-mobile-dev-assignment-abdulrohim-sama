@@ -44,9 +44,8 @@ class BreadthFirstSearch : ShortestPathFinder {
                 if (point.x == rows - 1 && point.y == cols - 1)
                     return steps
 
-                // Start explore using pre-defined directions
+                // Start exploring using pre-defined directions
                 for (dir in directions) {
-                    // Move to the new point
                     val newX = point.x + dir.x
                     val newY = point.y + dir.y
 
