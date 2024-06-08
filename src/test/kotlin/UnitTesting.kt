@@ -1,6 +1,5 @@
 // Unit Tests
 import algorithm.AStarSearch
-import algorithm.BackTrackingSearch
 import algorithm.BreadthFirstSearch
 import algorithm.DepthFirstSearch
 import algorithm.DijkstraSearch
@@ -12,7 +11,6 @@ import kotlin.test.assertEquals
 class ShortestPathTest {
 
     private val breadthFirstSearch: ShortestPathFinder = BreadthFirstSearch()
-    private val backTrackingSearch: ShortestPathFinder = BackTrackingSearch()
     private val aStarSearch: ShortestPathFinder = AStarSearch()
     private val dijkstraSearch: ShortestPathFinder = DijkstraSearch()
     private val dfs: ShortestPathFinder = DepthFirstSearch()
@@ -25,7 +23,6 @@ class ShortestPathTest {
             arrayOf(1, 1, 1)
         )
         assertEquals(4, breadthFirstSearch.execute(grid))
-        assertEquals(4, backTrackingSearch.execute(grid))
         assertEquals(4, aStarSearch.execute(grid))
         assertEquals(4, dijkstraSearch.execute(grid))
         assertEquals(4, dfs.execute(grid))
@@ -36,11 +33,10 @@ class ShortestPathTest {
         val grid = Array(1000) { Array(1000) { 1 } }
         val bfsTookTime = measureTimeMillis { assertEquals(1998, breadthFirstSearch.execute(grid)) }
         println("bfsTookTime=$bfsTookTime")
-//        Backtracking causing StackOverflow exception because too much recursive
-//        assertEquals(1998, backTrackingSearch.execute(grid))
         val aStarTookTime = measureTimeMillis { assertEquals(1998, aStarSearch.execute(grid)) }
         println("aStarTookTime=$aStarTookTime")
-        val dijkstraTookTime = measureTimeMillis {assertEquals(1998, dijkstraSearch.execute(grid)) }
+        val dijkstraTookTime =
+            measureTimeMillis { assertEquals(1998, dijkstraSearch.execute(grid)) }
         println("dijkstraTookTime=$dijkstraTookTime")
 //        DFS causing StackOverflow exception because too much recursive
 //        assertEquals(1998, dfs.execute(grid))
@@ -50,8 +46,6 @@ class ShortestPathTest {
     fun `Test super large grid`() {
         val grid = Array(2000) { Array(2000) { 1 } }
         assertEquals(3998, breadthFirstSearch.execute(grid))
-//        Backtracking causing StackOverflow exception because too much recursive
-//        assertEquals(3998, backTrackingSearch.execute(grid))
         assertEquals(3998, aStarSearch.execute(grid))
         assertEquals(3998, dijkstraSearch.execute(grid))
 //        DFS causing StackOverflow exception because too much recursive
@@ -66,7 +60,6 @@ class ShortestPathTest {
             arrayOf(1, 1, 1)
         )
         assertEquals(-1, breadthFirstSearch.execute(grid))
-        assertEquals(-1, backTrackingSearch.execute(grid))
         assertEquals(-1, aStarSearch.execute(grid))
         assertEquals(-1, dijkstraSearch.execute(grid))
         assertEquals(-1, dfs.execute(grid))
@@ -80,7 +73,6 @@ class ShortestPathTest {
             arrayOf(1, 1, 1)
         )
         assertEquals(-1, breadthFirstSearch.execute(grid))
-        assertEquals(-1, backTrackingSearch.execute(grid))
         assertEquals(-1, aStarSearch.execute(grid))
         assertEquals(-1, dijkstraSearch.execute(grid))
         assertEquals(-1, dfs.execute(grid))
@@ -95,7 +87,6 @@ class ShortestPathTest {
             arrayOf(0, 0, 1, 1)
         )
         assertEquals(6, breadthFirstSearch.execute(grid))
-        assertEquals(6, backTrackingSearch.execute(grid))
         assertEquals(6, aStarSearch.execute(grid))
         assertEquals(6, dijkstraSearch.execute(grid))
         assertEquals(6, dfs.execute(grid))
@@ -111,7 +102,6 @@ class ShortestPathTest {
             arrayOf(1, 1, 1, 1, 1, 1, 1, 1)
         )
         assertEquals(11, breadthFirstSearch.execute(grid))
-        assertEquals(11, backTrackingSearch.execute(grid))
         assertEquals(11, aStarSearch.execute(grid))
         assertEquals(11, dijkstraSearch.execute(grid))
         assertEquals(11, dfs.execute(grid))
@@ -133,7 +123,6 @@ class ShortestPathTest {
             arrayOf(1, 1, 1, 1, 1)
         )
         assertEquals(14, breadthFirstSearch.execute(grid))
-        assertEquals(14, backTrackingSearch.execute(grid))
         assertEquals(14, aStarSearch.execute(grid))
         assertEquals(14, dijkstraSearch.execute(grid))
         assertEquals(14, dfs.execute(grid))
