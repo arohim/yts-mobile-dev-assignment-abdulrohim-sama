@@ -1,8 +1,17 @@
 package algorithm
 
 import Point
-import java.util.*
+import java.util.LinkedList
+import java.util.Queue
 
+/**
+ * Time complexity: O(n * m)
+ *    where n * m is the size of the grid
+ *     log (n * m) is time complexity of add/poll operations for priority queue
+ *
+ * Space complexity: O(n * m)
+ *   uses a visited and queue, both of which can store up to O(n * m) elements
+ */
 class BreadthFirstSearch : ShortestPathFinder {
 
     override fun execute(grid: Array<Array<Int>>): Int {

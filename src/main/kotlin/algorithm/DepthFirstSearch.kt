@@ -2,16 +2,15 @@ package algorithm
 
 import Point
 
+/**
+ * Time complexity: O(4 ^ (n * m))
+ *    where n * m is the size of the grid
+ *     log (n * m) is time complexity of add/poll operations for priority queue
+ *
+ * Space complexity: O(n * m)
+ *   uses a visited which can store up to O(n * m) elements
+ */
 class DepthFirstSearch : ShortestPathFinder {
-
-    private fun isSafe(
-        grid: Array<Array<Int>>,
-        x: Int,
-        y: Int,
-        visited: Array<Array<Boolean>>
-    ): Boolean {
-        return x in grid.indices && y in 0 until grid[0].size && grid[x][y] == 1 && !visited[x][y]
-    }
 
     private fun dfs(
         grid: Array<Array<Int>>,
@@ -44,8 +43,8 @@ class DepthFirstSearch : ShortestPathFinder {
             // - and the new point is 1
             if (newX in grid.indices
                 && newY in 0 until grid[0].size
-                && grid[x][y] == 1
-                && !visited[x][y]
+                && grid[newX][newY] == 1
+                && !visited[newX][newY]
             ) {
                 // start exploring new point
                 dfs(

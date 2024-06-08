@@ -3,6 +3,14 @@ package algorithm
 import Point
 import java.util.PriorityQueue
 
+/**
+ * Time complexity: O((n * m) log (n * m))
+ *    where n * m is the size of the grid
+ *      log (n * m) is time complexity of add/poll operations for priority queue
+ *
+ * Space complexity: O(n * m)
+ *   uses a priority queue and a distance array, both of which can store up to O(n⋅m) elements
+ */
 class DijkstraSearch : ShortestPathFinder {
     override fun execute(grid: Array<Array<Int>>): Int {
         // Return -1 if grid is empty
