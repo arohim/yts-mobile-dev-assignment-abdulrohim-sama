@@ -1,4 +1,7 @@
+Disqualified by the interviewer not sure why, I though it's cover all the details and add more virtualization on android as per the position that I was applied for.
+
 ## Source code structure
+
 
 - src/main/kotlin/algorithm this path contains the actual code
 - src/test/kotlin this path contains unit testing
