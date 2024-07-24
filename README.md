@@ -19,3 +19,7 @@ version)
 ## How to run unit testing by command line
 
 Use command line ``./gradlew test`` to run unit testing
+
+## Demo
+https://github.com/user-attachments/assets/bdb066d6-3da0-48e7-8823-79c73eac9ca4
+
